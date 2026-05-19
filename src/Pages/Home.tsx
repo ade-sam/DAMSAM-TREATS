@@ -173,13 +173,13 @@ function HeroSection() {
     <div>
      <div className="section-label mb-4 font-fraunces italic">📍 Ibadan, Nigeria</div>
      <h1
-      className="hero-title text-white mb-2 font-semibold pacifico"
+      className="hero-title text-white mb-2 font-semibold Fjalla One"
       style={{ fontSize: "clamp(72px, 12vw, 15px)" }}
      >
       DAMSAM
      </h1>
      <h1
-      className="hero-title mb-6 font-semibold pacifico"
+      className="hero-title mb-6 font-semibold DM+Sans"
       style={{ fontSize: "clamp(72px, 12vw, 15px)", color: "#F5C518" }}
      >
       TREATS
