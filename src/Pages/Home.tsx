@@ -10,6 +10,7 @@ interface MenuItem {
  desc: string;
  tag: string | null;
  tagColor: string;
+ price: string;
 }
 
 interface CartItem extends MenuItem {
@@ -29,49 +30,84 @@ interface OrderFormState {
 
 const MENU_ITEMS: MenuItem[] = [
  {
-  id: 1, name: "Chicken Sharwama", emoji: "🌯", category: "Sharwama",
+  id: 1, name: "Chicken Sharwama {Single Sausage}", emoji: "🌯", category: "Sharwama",
   desc: "Grilled chicken, fresh veggies, sauces wrapped in a soft flatbread. Our signature.",
-  tag: "Best Seller", tagColor: "#C0392B",
+  tag: "Best Seller", tagColor: "#C0392B", price: "$2,500",
  },
  {
-  id: 2, name: "Beef Sharwama", emoji: "🫔", category: "Sharwama",
+  id: 2, name: "Chicken Sharwama {Double Sausage}", emoji: "🌯", category: "Sharwama",
+  desc: "Grilled chicken, fresh veggies, sauces wrapped in a soft flatbread. Our signature.",
+  tag: "Best Seller", tagColor: "#C0392B", price: "$3,000",
+ },
+ {
+  id: 3, name: "Beef Sharwama", emoji: "🫔", category: "Sharwama",
   desc: "Seasoned beef strips with crisp cabbage and our house special sauce in a warm wrap.",
-  tag: "Popular", tagColor: "#B7950B",
+  tag: "Popular", tagColor: "#B7950B", price: "$3,500",
  },
  {
-  id: 3, name: "Mixed Sharwama", emoji: "🌮", category: "Sharwama",
+  id: 4, name: "Mixed Sharwama", emoji: "🌮", category: "Sharwama",
   desc: "The best of both — chicken and beef together. For those who can't choose.",
-  tag: null, tagColor: "",
+  tag: null, tagColor: "", price: "$4,000"
  },
  {
-  id: 4, name: "Barbeque Chicken", emoji: "🍗", category: "Barbeque",
+  id: 5, name: "Barbeque Chicken", emoji: "🍗", category: "Barbeque",
   desc: "Smoky, charcoal-grilled chicken seasoned to perfection. Served hot off the grill.",
-  tag: "Smoky", tagColor: "#784212",
+  tag: "Smoky", tagColor: "#784212", price: "$15,000"
  },
  {
-  id: 5, name: "Barbeque Fish", emoji: "🐟", category: "Barbeque",
+  id: 6, name: "Barbeque Fish", emoji: "🐟", category: "Barbeque",
   desc: "Fresh grilled fish with our signature spice blend. Rich flavour, tender flesh.",
-  tag: null, tagColor: "",
+  tag: null, tagColor: "", price: "$10,000"
  },
  {
-  id: 6, name: "Asun", emoji: "🥩", category: "Asun",
+  id: 7, name: "Asun", emoji: "🥩", category: "Asun",
   desc: "Spicy peppered goat meat — a classic Nigerian BBQ snack. Hot, smoky and addictive.",
-  tag: "Spicy 🌶️", tagColor: "#C0392B",
+  tag: "Spicy 🌶️", tagColor: "#C0392B", price: "$1,500"
  },
  {
-  id: 7, name: "Fries & Chicken", emoji: "🍟", category: "Fries",
+  id: 8, name: "Fries & Chicken", emoji: "🍟", category: "Fries",
   desc: "Crispy golden fries paired with seasoned fried chicken. Comfort food at its best.",
-  tag: null, tagColor: "",
+  tag: null, tagColor: "", price: "$4,000"
  },
  {
-  id: 8, name: "Noodles & Egg", emoji: "🍜", category: "Noodles",
+  id: 9, name: "Garnished Noodles & Fried Egg", emoji: "🍜", category: "Noodles",
   desc: "Seasoned stir-fried noodles topped with a perfectly fried egg. Quick and satisfying.",
-  tag: "Light Meal", tagColor: "#117A65",
+  tag: "Light Meal", tagColor: "#117A65", price: "$2,000"
  },
  {
-  id: 9, name: "Noodles & Chicken", emoji: "🍝", category: "Noodles",
+  id: 10, name: "Spicy Noodles & Fried Egg (Plantain)", emoji: "♨️", category: "Noodles",
+  desc: "Hearty noodles combined with a perfectly fried egg. Quick and satisfying.",
+  tag: null, tagColor: "", price: "$2,500"
+ },
+ {
+  id: 11, name: "Jollof rice and Beef", emoji: "🍛", category: "Noodles",
   desc: "Hearty noodles combined with our flavourful grilled chicken pieces.",
-  tag: null, tagColor: "",
+  tag: null, tagColor: "", price: "$2,500"
+ },
+ {
+  id: 12, name: "Jollof rice and Chicken (Medium)", emoji: "🍛", category: "Noodles",
+  desc: "Hearty Jollof rice combined with our flavourful grilled chicken pieces.",
+  tag: "Popular", tagColor: "", price: "$3,000"
+ },
+ {
+  id: 13, name: "Jollof rice and Chicken (Big)", emoji: "🍛", category: "Noodles",
+  desc: "Hearty Jollof rice combined with our flavourful grilled chicken pieces.",
+  tag: null, tagColor: "", price: "$3,500"
+ },
+ {
+  id: 14, name: "Pasta and Beef", emoji: "🍝", category: "Noodles",
+  desc: "Seasoned stir-fried Pasta combined with our flavourful grilled beef pieces.",
+  tag: null, tagColor: "", price: "$2,300"
+ },
+ {
+  id: 15, name: "Pasta and Chicken (Medium)", emoji: "🍝", category: "Noodles",
+  desc: "Seasoned stir-fried Pasta combined with our flavourful grilled chicken pieces.",
+  tag: null, tagColor: "", price: "$2,800"
+ },
+ {
+  id: 16, name: "Pasta and Chicken (Big)", emoji: "🍝", category: "Noodles",
+  desc: "Seasoned stir-fried Pasta combined with our flavourful grilled chicken pieces.",
+  tag: null, tagColor: "", price: "$3,400"
  },
 ];
 
@@ -267,7 +303,7 @@ function MenuCard({ item, onAdd }: MenuCardProps) {
  };
 
  return (
-  <div className="menu-card rounded-2xl p-6 flex flex-col gap-4 border border-[#f5c51842] transition-all duration-300 hover:-translate-y-2 hover:border-[#f5c518a6]">
+  <div className="menu-card rounded-2xl p-6 flex flex-col gap-4 border border-[#f5c51842] transition-all duration-300 hover:-translate-y-2 hover:border-[red]">
    <div className="flex items-start justify-between">
     <span style={{ fontSize: 44, lineHeight: 1 }}>{item.emoji}</span>
     {item.tag ? (
@@ -299,10 +335,16 @@ function MenuCard({ item, onAdd }: MenuCardProps) {
     </h3>
     <p className="text-gray-400 text-sm mt-2 leading-relaxed">{item.desc}</p>
    </div>
+   <div className="flex">
+    <div style={{ fontFamily: "'Bebas Neue',cursive" }} className="bg-amber-950 py-1 px-2 rounded-lg badge-24">
+     {item.price}
+    </div>
+
+   </div>
 
    <div
     className="flex items-center justify-between mt-auto pt-2 border-t"
-    style={{ borderColor: "rgba(255,255,255,0.07)" }}
+    style={{ borderColor: "rgba(255,255,255,0.3)" }}
    >
     <div className="flex items-center gap-3">
      <button className="qty-btn" onClick={() => changeQty(-1)}>−</button>
