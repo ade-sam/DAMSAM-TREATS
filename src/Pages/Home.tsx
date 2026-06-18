@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import Logo from '../assets/Damsamfavicon.png';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -143,9 +144,9 @@ function Navbar({ cartCount, onCartOpen }: { cartCount: number; onCartOpen: () =
    <div className="flex items-center gap-3">
     <div
      className="w-8 h-8 rounded-full flex items-center justify-center"
-     style={{ background: "#C0392B" }}
+     style={{ background: "#ffffff" }}
     >
-     <span className="p-1" style={{ fontFamily: "'Bebas Neue',cursive", fontSize: 12, color: "#fff", borderRadius: '7px', background: 'linear-gradient(135deg, #96281B, goldenrod, #96281B)' }}>DT</span>
+     <img className="w-7 h-7" src={Logo} alt="logo" />
     </div>
     <span style={{ fontFamily: "'Bebas Neue',cursive", color: 'white', fontSize: 22, letterSpacing: "0.05em" }}>
      DAMSAM <span style={{ color: "#F5C518" }}>TREATS</span>
@@ -397,7 +398,7 @@ function MenuSection({ onAdd }: { onAdd: (id: number, qty: number) => void }) {
 function AboutSection() {
  const locations = [
   { label: "LOCATION 1", address: "Opposite Blessed Baptist Church, Lakoto Area, Ajibode, Ibadan" },
-  { label: "LOCATION 2", address: "Onigbodogi Junction, Apete, Ibadan" },
+  { label: "LOCATION 2", address: "Fanawole Street, Before Ile-Ball, Apete, Ibadan" },
   { label: "CALL / WHATSAPP", address: "07081992566  |  08068955641" },
  ];
 
